@@ -76,8 +76,11 @@ Environment=EXECUTOR_PROCESS_ORDERS=true
 Environment=EXECUTOR_PROCESS_CLAIMS=true
 Environment=ENABLED_NETWORKS=base-sepolia,arbitrum-sepolia,optimism-sepolia,l1rn
 Environment=EXECUTOR_MAX_L3_GAS_PRICE=300
-Environment=EXECUTOR_PROCESS_PENDING_ORDERS_FROM_API=true
+Environment=EXECUTOR_PROCESS_PENDING_ORDERS_FROM_API=false
 Environment=PRIVATE_KEY_LOCAL=**your_private_key_here**
+Environment=RPC_ENDPOINTS_ARBT='https://sepolia-rollup.arbitrum.io/rpc'
+Environment=RPC_ENDPOINTS_BSSP='https://base-sepolia-rpc.publicnode.com/'
+Environment=RPC_ENDPOINTS_OPSP='https://sepolia.optimism.io'
 
 # Working directory
 WorkingDirectory=/home/t3rn/executor/executor/bin
