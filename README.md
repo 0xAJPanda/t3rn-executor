@@ -1,54 +1,59 @@
-# t3rn-
 
+# t3rn Node Installation
 
+This guide walks you through the installation of the t3rn executor node.
 
-Installation Steps
+## Installation Steps
 
-1. System Update
+### 1. System Update
 Update your system packages:
-```
+
+```bash
 sudo apt update
 sudo apt upgrade -y
 ```
-2. Install Required Dependencies
-```
+
+### 2. Install Required Dependencies
+Install the `figlet` utility:
+
+```bash
 sudo apt-get install figlet -y
 ```
-3. Create Service User
+
+### 3. Create Service User
 Create a dedicated user for running the t3rn node:
 
-```
+```bash
 sudo useradd -r -s /bin/false t3rn
 sudo mkdir -p /home/t3rn
 ```
 
-4. T3rn Binary Installation
+### 4. T3rn Binary Installation
 Download and set up the t3rn executor:
-```
+
+```bash
 cd /home/t3rn
-```
-```
 wget https://github.com/t3rn/executor-release/releases/download/v0.33.0/executor-linux-v0.33.0.tar.gz
-```
-```
 tar -xzvf executor-linux-v0.33.0.tar.gz
-```
-```
 rm -rf executor-linux-v0.33.0.tar.gz
 ```
+
 Set proper permissions:
 
-```
+```bash
 sudo chown -R t3rn:t3rn /home/t3rn
 ```
 
-5. Create Systemd Service
+### 5. Create Systemd Service
 Create a new service file:
 
-```
+```bash
 sudo nano /etc/systemd/system/t3rn.service
+```
 
 Add the following configuration:
+
+```ini
 [Unit]
 Description=T3rn Executor Node
 After=network-online.target
@@ -70,7 +75,7 @@ Environment=LOG_PRETTY=false
 Environment=EXECUTOR_PROCESS_ORDERS=true
 Environment=EXECUTOR_PROCESS_CLAIMS=true
 Environment=ENABLED_NETWORKS=base-sepolia,arbitrum-sepolia,optimism-sepolia,l1rn
-Environment=EXECUTOR_MAX_L3_GAS_PRICE=500
+Environment=EXECUTOR_MAX_L3_GAS_PRICE=300
 Environment=EXECUTOR_PROCESS_PENDING_ORDERS_FROM_API=true
 Environment=PRIVATE_KEY_LOCAL=**your_private_key_here**
 
@@ -80,55 +85,72 @@ WorkingDirectory=/home/t3rn/executor/executor/bin
 [Install]
 WantedBy=multi-user.target
 ```
-6. Configure the Service
 
-Replace your_private_key_here with your actual EVM wallet private key
-Save and exit (CTRL+X, then Y, then Enter)
+### 6. Configure the Service
 
-7. Start the Service
-Enable and start the t3rn service:
+- Replace `**your_private_key_here**` with your actual EVM wallet private key.
+- Save and exit (CTRL+X, then Y, then Enter).
 
-# Reload systemd to recognize the new service
+### 7. Start the Service
 
-```
+Reload systemd to recognize the new service:
+
+```bash
 sudo systemctl daemon-reload
 ```
 
-# Enable service to start on boot
-```
+Enable service to start on boot:
 
+```bash
 sudo systemctl enable t3rn
 ```
 
-# Start the service
-```
+Start the service:
+
+```bash
 sudo systemctl start t3rn
 ```
- 8. Monitor the Node
 
-Check Service Status
-```
+### 8. Monitor the Node
+
+#### Check Service Status
+
+```bash
 sudo systemctl status t3rn
 ```
 
-View Logs
+#### View Logs
 
+- View all logs:
 
-# View all logs
-```
+```bash
 sudo journalctl -u t3rn
 ```
 
-# Follow logs in real-time
-```
+- Follow logs in real-time:
+
+```bash
 sudo journalctl -u t3rn -f
 ```
- **Service Management:**
 
- Common Commands
-- Stop the service: sudo systemctl stop t3rn
-- Restart the service: sudo systemctl restart t3rn
-- Disable autostart: sudo systemctl disable t3rn
+## Service Management
 
+Common Commands:
 
+- **Stop the service**: 
 
+```bash
+sudo systemctl stop t3rn
+```
+
+- **Restart the service**: 
+
+```bash
+sudo systemctl restart t3rn
+```
+
+- **Disable autostart**: 
+
+```bash
+sudo systemctl disable t3rn
+```
