@@ -1,7 +1,7 @@
 
 # t3rn Node Installation
 
-This guide walks you through the installation of the t3rn executor node.
+An essential actor of the t3rn ecosystem is the executor. Executor are off-chain participants that can generate yield by executing transactions that where triggered by an on-chain transaction on the t3rn circuit. Once the transaction is finalized an inclusion proof is generated, which is then submitted to the t3rn blockchain, prooving that the transaction was executed correctly. This in turn unlocks the reward to the executor.
 
 ## Installation Steps
 
