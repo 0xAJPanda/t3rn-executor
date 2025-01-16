@@ -33,9 +33,9 @@ Download and set up the t3rn executor:
 
 ```bash
 cd /home/t3rn
-wget https://github.com/t3rn/executor-release/releases/download/v0.33.0/executor-linux-v0.33.0.tar.gz
-tar -xzvf executor-linux-v0.33.0.tar.gz
-rm -rf executor-linux-v0.33.0.tar.gz
+wget https://github.com/t3rn/executor-release/releases/download/v0.37.0/executor-linux-v0.37.0.tar.gz
+tar -xzvf executor-linux-v0.37.0.tar.gz
+rm -rf executor-linux-v0.37.0.tar.gz
 ```
 
 Set proper permissions:
@@ -81,6 +81,7 @@ Environment=PRIVATE_KEY_LOCAL=**your_private_key_here**
 Environment=RPC_ENDPOINTS_ARBT='https://sepolia-rollup.arbitrum.io/rpc'
 Environment=RPC_ENDPOINTS_BSSP='https://base-sepolia-rpc.publicnode.com/'
 Environment=RPC_ENDPOINTS_OPSP='https://sepolia.optimism.io'
+Environment=RPC_ENDPOINTS_L1RN='https://brn.calderarpc.com/'
 
 # Working directory
 WorkingDirectory=/home/t3rn/executor/executor/bin
