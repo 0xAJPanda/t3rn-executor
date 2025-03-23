@@ -33,9 +33,9 @@ Download and set up the t3rn executor:
 
 ```bash
 cd /home/t3rn
-wget https://github.com/t3rn/executor-release/releases/download/v0.37.0/executor-linux-v0.37.0.tar.gz
-tar -xzvf executor-linux-v0.37.0.tar.gz
-rm -rf executor-linux-v0.37.0.tar.gz
+curl -s https://api.github.com/repos/t3rn/executor-release/releases/latest | grep -Po '"tag_name": "\K.*?(?=")' | xargs -I {} wget https://github.com/t3rn/executor-release/releases/download/{}/executor-linux-{}.tar.gz
+tar -xzvf executor-linux-*.tar.gz
+rm -rf executor-linux-*.tar.gz
 ```
 
 Set proper permissions:
@@ -70,18 +70,18 @@ LimitNOFILE=65535
 
 # Environment variables
 Environment=NODE_ENV=testnet
+Environment=ENVIRONMENT=testnet
 Environment=LOG_LEVEL=debug
 Environment=LOG_PRETTY=false
-Environment=EXECUTOR_PROCESS_ORDERS=true
-Environment=EXECUTOR_PROCESS_CLAIMS=true
-Environment=ENABLED_NETWORKS=base-sepolia,arbitrum-sepolia,optimism-sepolia,l1rn
-Environment=EXECUTOR_MAX_L3_GAS_PRICE=300
+Environment=EXECUTOR_PROCESS_BIDS_ENABLED=true
+Environment=EXECUTOR_PROCESS_ORDERS_ENABLED=true
+Environment=EXECUTOR_PROCESS_CLAIMS_ENABLED=true
+Environment=ENABLED_NETWORKS='arbitrum-sepolia,unichain-sepolia,base-sepolia,optimism-sepolia,l2rn'
+Environment=EXECUTOR_MAX_L3_GAS_PRICE=4000
 Environment=EXECUTOR_PROCESS_PENDING_ORDERS_FROM_API=false
-Environment=PRIVATE_KEY_LOCAL=**your_private_key_here**
-Environment=RPC_ENDPOINTS_ARBT='https://sepolia-rollup.arbitrum.io/rpc'
-Environment=RPC_ENDPOINTS_BSSP='https://base-sepolia-rpc.publicnode.com/'
-Environment=RPC_ENDPOINTS_OPSP='https://sepolia.optimism.io'
-Environment=RPC_ENDPOINTS_L1RN='https://brn.calderarpc.com/'
+
+Environment=RPC_ENDPOINTS='{"l2rn": ["https://b2n.rpc.caldera.xyz/http"],"arbt": ["https://arbitrum-sepolia.drpc.org", "https://sepolia-rollup.arbitrum.io/rpc"],"bast": ["https://base-sepolia-rpc.publicnode.com", "https://base-sepolia.drpc.org"],"opst": ["https://sepolia.optimism.io", "https://optimism-sepolia.drpc.org"],"unit": ["https://unichain-sepolia.drpc.org","https://sepolia.unichain.org"]'
+
 
 # Working directory
 WorkingDirectory=/home/t3rn/executor/executor/bin
