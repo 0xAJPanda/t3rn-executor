@@ -79,7 +79,7 @@ Environment=EXECUTOR_PROCESS_PENDING_ORDERS_FROM_API=false
 Environment=PRIVATE_KEY_LOCAL=**your_private_key_here**
 
 
-Environment=RPC_ENDPOINTS='{"l2rn": ["https://b2n.rpc.caldera.xyz/http"],"arbt": ["https://arbitrum-sepolia.drpc.org", "https://sepolia-rollup.arbitrum.io/rpc"],"bast": ["https://base-sepolia-rpc.publicnode.com", "https://base-sepolia.drpc.org"],"opst": ["https://sepolia.optimism.io", "https://optimism-sepolia.drpc.org"],"unit": ["https://unichain-sepolia.drpc.org","https://sepolia.unichain.org"]'
+Environment=RPC_ENDPOINTS='{"l2rn": ["https://b2n.rpc.caldera.xyz/http"],"arbt": ["https://arbitrum-sepolia.drpc.org", "https://sepolia-rollup.arbitrum.io/rpc"],"bast": ["https://base-sepolia-rpc.publicnode.com", "https://base-sepolia.drpc.org"],"opst": ["https://sepolia.optimism.io", "https://optimism-sepolia.drpc.org"],"unit": ["https://unichain-sepolia.drpc.org","https://sepolia.unichain.org"]}'
 
 
 # Working directory
