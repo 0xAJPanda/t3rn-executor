@@ -48,12 +48,9 @@ sudo chown -R t3rn:t3rn /home/t3rn
 Create a new service file:
 
 ```bash
-sudo nano /etc/systemd/system/t3rn.service
-```
 
-Add the following configuration:
+sudo tee /etc/systemd/system/t3rn.service > /dev/null <<EOF
 
-```ini
 [Unit]
 Description=T3rn Executor Node
 After=network-online.target
@@ -90,6 +87,7 @@ WorkingDirectory=/home/t3rn/executor/executor/bin
 
 [Install]
 WantedBy=multi-user.target
+EOF
 ```
 
 ### 6. Configure the Service
