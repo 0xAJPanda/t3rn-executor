@@ -74,7 +74,7 @@ Environment=EXECUTOR_PROCESS_BIDS_ENABLED=true
 Environment=EXECUTOR_PROCESS_ORDERS_ENABLED=true
 Environment=EXECUTOR_PROCESS_CLAIMS_ENABLED=true
 Environment=ENABLED_NETWORKS='arbitrum-sepolia,unichain-sepolia,base-sepolia,optimism-sepolia,l2rn'
-Environment=EXECUTOR_MAX_L3_GAS_PRICE=4000
+Environment=EXECUTOR_MAX_L3_GAS_PRICE=100
 Environment=EXECUTOR_PROCESS_PENDING_ORDERS_FROM_API=false
 Environment=PRIVATE_KEY_LOCAL=**your_private_key_here**
 
